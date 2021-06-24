@@ -62,7 +62,6 @@ router.get('/users/me', auth , async (req,res) => {
 })
 
 router.patch('/users/me',auth,async(req,res) => {
-    const _id = req.user._id
     const updates = Object.keys(req.body)
     const allowedUpdates = ['name','email','password','age']
 
@@ -87,7 +86,6 @@ router.patch('/users/me',auth,async(req,res) => {
 })
 
 router.delete('/users/me',auth,async(req,res) => {
-    const _id = req.user._id
 
     try{
         await req.user.remove()
